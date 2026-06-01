@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metamorphic Rocks — Lab ID Form</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#222;background:#f5f5f3;max-width:1000px;margin:0 auto;padding:0 1rem 4rem}
+nav{display:flex;align-items:center;gap:0.4rem;font-size:13px;padding:1rem 0;color:#666;border-bottom:1px solid #ddd;margin-bottom:1.5rem;flex-wrap:wrap}
+nav a{color:#1a6b3c;text-decoration:none}
+nav a:hover{text-decoration:underline}
+nav .current{color:#222;font-weight:600}
+.page-header{margin-bottom:1.5rem}
+.course-tag{font-size:12px;color:#666;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.2rem}
+h1{font-size:1.6rem;font-weight:400;font-family:Georgia,serif}
+h1 em{font-style:italic;color:#555}
+.student-info{background:#fff;border:1px solid #ddd;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem}
+.field-group label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#888;margin-bottom:4px}
+.field-group input{width:100%;border:1px solid #ccc;border-radius:4px;padding:0.4rem 0.6rem;font-size:13px;font-family:Arial,sans-serif}
+.field-group input:focus{outline:none;border-color:#1a6b3c;box-shadow:0 0 0 2px rgba(26,107,60,0.15)}
+.instructions{background:#e8f4ec;border:1px solid #b8ddc8;border-radius:6px;padding:0.7rem 1rem;font-size:13px;margin-bottom:1.5rem;color:#1a4d32}
+.specimen-card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;margin-bottom:1.2rem;overflow:hidden}
+.sc-header{background:#1a6b3c;color:#fff;padding:0.7rem 1rem;display:flex;justify-content:space-between;align-items:center}
+.sc-num{font-size:12px;font-weight:700;letter-spacing:0.06em;opacity:0.85}
+.sc-name{font-size:1rem;font-weight:600}
+.sc-type{font-size:11px;background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:10px}
+.sc-fields{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #eee}
+.sf{padding:0.7rem 1rem;border-bottom:1px solid #f0f0f0;border-right:1px solid #f0f0f0}
+.sf:nth-child(even){border-right:none}
+.sf.full{grid-column:1/-1;border-right:none}
+.sf label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#888;margin-bottom:4px}
+.sf textarea,.sf input[type=text],.sf select{width:100%;border:1px solid #ddd;border-radius:4px;padding:0.4rem 0.6rem;font-size:13px;font-family:Arial,sans-serif;resize:vertical}
+.sf textarea{min-height:64px}
+.sf textarea:focus,.sf input:focus,.sf select:focus{outline:none;border-color:#1a6b3c;box-shadow:0 0 0 2px rgba(26,107,60,0.12)}
+.sc-progress{height:3px;background:#eee}
+.sc-progress-bar{height:100%;background:#1a6b3c;transition:width 0.3s;width:0%}
+.actions{display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #ddd;align-items:center}
+.btn{padding:0.65rem 1.4rem;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:Arial,sans-serif}
+.btn-primary{background:#1a6b3c;color:#fff}
+.btn-primary:hover{background:#155731}
+.btn-outline{background:#fff;color:#1a6b3c;border:1px solid #b8ddc8}
+.btn-outline:hover{background:#f6faf8}
+.progress-summary{font-size:13px;color:#666;margin-left:auto}
+.completion-badge{display:none;background:#d4edda;color:#155724;border:1px solid #c3e6cb;border-radius:6px;padding:0.6rem 1rem;font-size:13px;font-weight:600;width:100%;text-align:center;margin-top:1rem}
+.site-nav{display:flex;gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #ddd;flex-wrap:wrap}
+.site-nav a{background:#1a6b3c;color:#fff;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:13px}
+.site-nav a:hover{background:#155731}
+.site-nav .current-site{background:#f6faf8;color:#1a6b3c;border:1px solid #b8ddc8;font-weight:600;padding:0.6rem 1.2rem;border-radius:6px;font-size:13px}
+@media(max-width:600px){.sc-fields{grid-template-columns:1fr}.sf{border-right:none}.sf.full{grid-column:1}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">1 Lab Guide</a>
+  <span style="color:#bbb">›</span>
+  <a href="meta-rock-id.html">2 Rock ID</a>
+  <span style="color:#bbb">›</span>
+  <span class="current">3 Lab Form</span>
+</nav>
+
+<div class="page-header">
+  <p class="course-tag">EES 2001 · Physical Geology</p>
+  <h1>Metamorphic Rocks <em>Lab ID Form</em></h1>
+</div>
+
+<div class="student-info">
+  <div class="field-group"><label>Name</label><input type="text" id="student-name" placeholder="Your full name"></div>
+  <div class="field-group"><label>Section / Lab</label><input type="text" id="student-section" placeholder="e.g., Section 002"></div>
+  <div class="field-group"><label>Date</label><input type="text" id="student-date" placeholder="e.g., June 1, 2026"></div>
+</div>
+
+<div class="instructions">📋 Use the <a href="meta-rock-id.html" style="color:#1a6b3c;font-weight:600">Rock ID Site</a> and your <a href="index.html" style="color:#1a6b3c;font-weight:600">Lab Guide</a> to complete all five columns for each specimen. For <em>Protolith</em>, state the parent rock AND briefly explain your evidence. For <em>Metamorphic Grade</em>, write N/A for non-foliated rocks.</div>
+
+<div id="specimens-container"></div>
+
+<div class="actions">
+  <button class="btn btn-primary" onclick="printForm()">🖨 Print / Save as PDF</button>
+  <button class="btn btn-outline" onclick="clearAll()">Clear All</button>
+  <span class="progress-summary" id="progress-text">0 of 10 specimens completed</span>
+</div>
+<div class="completion-badge" id="completion-badge">✓ All 10 specimens completed! Ready to submit.</div>
+
+<div class="site-nav">
+  <a href="index.html">← Lab Guide</a>
+  <a href="meta-rock-id.html">← Rock ID</a>
+  <span class="current-site">3 Lab Form</span>
+</div>
+
+<script>
+var specimens = [
+  {id:'M-1',name:'Slate',type:'Foliated'},
+  {id:'M-2',name:'Phyllite',type:'Foliated'},
+  {id:'M-3',name:'Mica Schist',type:'Foliated'},
+  {id:'M-4',name:'Garnet Schist',type:'Foliated'},
+  {id:'M-5',name:'Gneiss',type:'Foliated'},
+  {id:'M-6',name:'Marble',type:'Non-Foliated'},
+  {id:'M-7',name:'Quartzite',type:'Non-Foliated'},
+  {id:'M-8',name:'Metaconglomerate',type:'Non-Foliated'},
+  {id:'M-9',name:'Amphibolite',type:'Non-Foliated'},
+  {id:'M-10',name:'Hornfels',type:'Non-Foliated'}
+];
+
+var gradeOptions = ['-- Select --','Low','Low–Intermediate','Intermediate','Intermediate–High','High','N/A (Non-Foliated)'];
+
+function buildForms() {
+  var c = document.getElementById('specimens-container');
+  specimens.forEach(function(sp,i) {
+    var sid = sp.id.replace('-','').toLowerCase();
+    var card = document.createElement('div');
+    card.className = 'specimen-card';
+    card.innerHTML =
+      '<div class="sc-header">' +
+        '<div>' +
+          '<div class="sc-num">Specimen ' + sp.id + '</div>' +
+          '<div class="sc-name">' + sp.name + '</div>' +
+        '</div>' +
+        '<span class="sc-type">' + sp.type + '</span>' +
+      '</div>' +
+      '<div class="sc-progress"><div class="sc-progress-bar" id="prog-'+sid+'"></div></div>' +
+      '<div class="sc-fields">' +
+        '<div class="sf">' +
+          '<label>Texture</label>' +
+          '<textarea id="tex-'+sid+'" placeholder="Describe the texture (e.g., slaty cleavage, schistosity, crystalline granular...)" oninput="updateProgress(\''+sid+'\')"></textarea>' +
+        '</div>' +
+        '<div class="sf">' +
+          '<label>Index Minerals / Minerals Present</label>' +
+          '<textarea id="min-'+sid+'" placeholder="List visible minerals or index minerals (e.g., garnet, biotite, muscovite, calcite...)" oninput="updateProgress(\''+sid+'\')"></textarea>' +
+        '</div>' +
+        '<div class="sf">' +
+          '<label>Metamorphic Grade</label>' +
+          '<select id="grd-'+sid+'" onchange="updateProgress(\''+sid+'\')">' +
+          gradeOptions.map(function(o){return '<option>'+o+'</option>'}).join('') +
+          '</select>' +
+        '</div>' +
+        '<div class="sf">' +
+          '<label>Protolith (with evidence)</label>' +
+          '<textarea id="pro-'+sid+'" placeholder="State the parent rock and explain your evidence (e.g., Shale — fine-grained, platy character; low grade; retained clay mineralogy)" oninput="updateProgress(\''+sid+'\')"></textarea>' +
+        '</div>' +
+        '<div class="sf full">' +
+          '<label>Metamorphic Rock Name</label>' +
+          '<input type="text" id="nam-'+sid+'" placeholder="Rock name (e.g., Garnet Schist, Marble, Quartzite...)" oninput="updateProgress(\''+sid+'\')">' +
+        '</div>' +
+      '</div>';
+    c.appendChild(card);
+  });
+}
+
+function getFields(sid) {
+  return [
+    document.getElementById('tex-'+sid).value.trim(),
+    document.getElementById('min-'+sid).value.trim(),
+    document.getElementById('grd-'+sid).value,
+    document.getElementById('pro-'+sid).value.trim(),
+    document.getElementById('nam-'+sid).value.trim()
+  ];
+}
+
+function updateProgress(sid) {
+  var fields = getFields(sid);
+  var filled = fields.filter(function(f,i){
+    if(i===2) return f !== '-- Select --';
+    return f.length > 0;
+  }).length;
+  var pct = Math.round((filled/5)*100);
+  document.getElementById('prog-'+sid).style.width = pct+'%';
+  updateTotal();
+}
+
+function updateTotal() {
+  var done = 0;
+  specimens.forEach(function(sp){
+    var sid = sp.id.replace('-','').toLowerCase();
+    var fields = getFields(sid);
+    var allFilled = fields.every(function(f,i){
+      if(i===2) return f !== '-- Select --';
+      return f.length > 0;
+    });
+    if(allFilled) done++;
+  });
+  document.getElementById('progress-text').textContent = done + ' of 10 specimens completed';
+  var badge = document.getElementById('completion-badge');
+  badge.style.display = done === 10 ? 'block' : 'none';
+}
+
+function clearAll() {
+  if(!confirm('Clear all entered data?')) return;
+  specimens.forEach(function(sp){
+    var sid = sp.id.replace('-','').toLowerCase();
+    document.getElementById('tex-'+sid).value='';
+    document.getElementById('min-'+sid).value='';
+    document.getElementById('grd-'+sid).value='-- Select --';
+    document.getElementById('pro-'+sid).value='';
+    document.getElementById('nam-'+sid).value='';
+    document.getElementById('prog-'+sid).style.width='0%';
+  });
+  document.getElementById('student-name').value='';
+  document.getElementById('student-section').value='';
+  document.getElementById('student-date').value='';
+  updateTotal();
+}
+
+function printForm() {
+  window.print();
+}
+
+buildForms();
+</script>
+</body>
+</html>

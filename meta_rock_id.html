@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metamorphic Rock ID — Specimen Identification</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#222;background:#f5f5f3;max-width:900px;margin:0 auto;padding:0 1rem 4rem}
+nav{display:flex;align-items:center;gap:0.4rem;font-size:13px;padding:1rem 0;color:#666;border-bottom:1px solid #ddd;margin-bottom:1.5rem;flex-wrap:wrap}
+nav a{color:#1a6b3c;text-decoration:none}
+nav a:hover{text-decoration:underline}
+nav .current{color:#222;font-weight:600}
+.page-header{margin-bottom:1.5rem}
+.course-tag{font-size:12px;color:#666;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.2rem}
+h1{font-size:1.8rem;font-weight:400;font-family:Georgia,serif}
+h1 em{font-style:italic;color:#555}
+.meta{font-size:12px;color:#888;margin:0.3rem 0 1rem;display:flex;gap:1.2rem;flex-wrap:wrap}
+.hint{background:#e8f4ec;border:1px solid #b8ddc8;border-radius:6px;padding:0.7rem 1rem;font-size:13px;margin-bottom:1.5rem;color:#1a4d32}
+.filters{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.filter-btn{background:#fff;border:1px solid #ccc;border-radius:20px;padding:0.35rem 1rem;font-size:13px;cursor:pointer;transition:all 0.15s}
+.filter-btn:hover{border-color:#1a6b3c;color:#1a6b3c}
+.filter-btn.active{background:#1a6b3c;color:#fff;border-color:#1a6b3c}
+.specimen{background:#fff;border:1px solid #e0e0e0;border-radius:10px;margin-bottom:1.5rem;overflow:hidden}
+.spec-header{display:grid;grid-template-columns:1fr auto;align-items:start;padding:1rem 1.2rem 0.8rem;gap:1rem}
+.spec-num{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:0.2rem}
+.spec-name{font-size:1.3rem;font-weight:600;color:#1a4d32}
+.spec-type{display:inline-block;font-size:11px;padding:3px 10px;border-radius:12px;font-weight:600;margin-top:0.3rem}
+.type-foliated{background:#d4edda;color:#155724}
+.type-nonfoliated{background:#cce5ff;color:#004085}
+.photo-area{padding:0 1.2rem}
+.photo-tabs{display:flex;gap:0.4rem;margin-bottom:0.5rem}
+.photo-tab{background:#f5f5f3;border:1px solid #ddd;border-radius:4px;padding:0.3rem 0.8rem;font-size:12px;cursor:pointer}
+.photo-tab.active{background:#1a6b3c;color:#fff;border-color:#1a6b3c}
+.photo-wrap{position:relative;width:100%;background:#f0f0ee;border-radius:6px;overflow:hidden;margin-bottom:0.8rem}
+.photo-wrap img{width:100%;max-height:360px;object-fit:cover;display:block}
+.photo-caption{font-size:12px;color:#666;font-style:italic;padding:0.4rem 0.6rem;background:rgba(0,0,0,0.04);text-align:center}
+.spec-props{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.5rem;padding:0 1.2rem 0.8rem}
+.prop{background:#f9f9f9;border-radius:5px;padding:0.5rem 0.7rem}
+.prop-label{font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:#888;margin-bottom:0.1rem;font-weight:600}
+.prop-val{font-size:13px;font-weight:600;color:#1a4d32}
+.key-feature{background:#fff8e1;border-left:3px solid #f59e0b;padding:0.6rem 1rem;margin:0 1.2rem 0.8rem;border-radius:0 5px 5px 0;font-size:13px}
+.key-feature strong{color:#7c4a00}
+.details-toggle{width:100%;background:none;border:none;border-top:1px solid #eee;padding:0.7rem 1.2rem;text-align:left;font-size:13px;color:#1a6b3c;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:Arial,sans-serif;font-weight:600}
+.details-toggle:hover{background:#f6faf8}
+.details-body{display:none;padding:0.8rem 1.2rem 1rem;border-top:1px solid #eee;font-size:13px;line-height:1.7;color:#333}
+.details-body.open{display:block}
+.details-body h4{font-size:13px;font-weight:700;color:#1a4d32;margin:0.8rem 0 0.3rem}
+.details-body h4:first-child{margin-top:0}
+.site-nav{display:flex;gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #ddd;flex-wrap:wrap}
+.site-nav a{background:#1a6b3c;color:#fff;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;font-weight:600;font-size:13px}
+.site-nav a:hover{background:#155731}
+.site-nav .current-site{background:#f6faf8;color:#1a6b3c;border:1px solid #b8ddc8;font-weight:600;padding:0.6rem 1.2rem;border-radius:6px;font-size:13px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">1 Lab Guide</a>
+  <span style="color:#bbb">›</span>
+  <span class="current">2 Rock ID</span>
+  <span style="color:#bbb">›</span>
+  <a href="meta-lab-form.html">3 Lab Form</a>
+</nav>
+
+<div class="page-header">
+  <p class="course-tag">EES 2001 · Physical Geology</p>
+  <h1>Metamorphic Rock <em>Specimen Identification</em></h1>
+  <div class="meta">
+    <span>10 Specimens</span>
+    <span>Record answers on Lab Form (Site 3)</span>
+    <span>Click any specimen to expand details</span>
+  </div>
+</div>
+
+<div class="filters">
+  <span style="font-size:13px;color:#666;align-self:center;">Filter by type:</span>
+  <button class="filter-btn active" onclick="filter('all',this)">All Specimens</button>
+  <button class="filter-btn" onclick="filter('foliated',this)">Foliated</button>
+  <button class="filter-btn" onclick="filter('nonfoliated',this)">Non-Foliated</button>
+</div>
+
+<div class="hint">📋 For each specimen: note the specimen number, observe the texture and minerals, determine metamorphic grade, identify the protolith, and record on your Lab ID Form.</div>
+
+<!-- M-1 SLATE -->
+<div class="specimen" data-type="foliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-1</div>
+      <div class="spec-name">Slate</div>
+      <span class="spec-type type-foliated">Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhoto(this,'slate1.jpg','Hand specimen — note flat, fine-grained surface')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhoto(this,'slate2.jpg','Classic slaty cleavage — fissile, breaking in flat parallel sheets')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-slate" src="slate1.jpg" alt="Slate hand specimen">
+      <div class="photo-caption" id="cap-slate">Hand specimen — note flat, fine-grained surface</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Slaty cleavage</div></div>
+    <div class="prop"><div class="prop-label">Grain Size</div><div class="prop-val">Very fine (sub-microscopic)</div></div>
+    <div class="prop"><div class="prop-label">Color</div><div class="prop-val">Dark gray to black</div></div>
+    <div class="prop"><div class="prop-label">Metamorphic Grade</div><div class="prop-val">Low</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Shale</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Breaks into flat, hard sheets along well-developed parallel planes (slaty cleavage). No visible crystals. Slightly shiny compared to shale. Harder and more durable than its protolith.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Slate is the lowest-grade metamorphic product of shale. Clay minerals have been slightly recrystallized into microscopic mica and chlorite, but the grains remain too small to see without a microscope. The key property is <strong>slaty cleavage</strong> — the rock splits along perfectly flat parallel planes that may be at a high angle to the original sedimentary bedding. This is distinct from the bedding-plane fissility of shale.</p>
+    <h4>Distinguishing from Shale</h4>
+    <p>Slate is harder (won't crumble when scratched), has a clanking sound when struck, and breaks along cleavage planes that cut across original bedding. Shale breaks along bedding and has a duller, earthier luster. Slate may have a slight metallic sheen.</p>
+    <h4>Protolith Evidence</h4>
+    <p>The fine-grained, platy character and dark color indicate a shale (clay-rich) protolith. The preserved fine texture and flat cleavage confirm only low-grade metamorphism has occurred.</p>
+  </div>
+</div>
+
+<!-- M-2 PHYLLITE -->
+<div class="specimen" data-type="foliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-2</div>
+      <div class="spec-name">Phyllite</div>
+      <span class="spec-type type-foliated">Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-phyllite','cap-phyllite','phyllite1.jpg','Phyllite hand specimen — silky sheen and crinkly foliation surface (3 cm scale)')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-phyllite','cap-phyllite','phyllite2.jpg','Phyllite close-up — visible sheen from fine mica; wavy foliation planes')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-phyllite" src="phyllite1.jpg" alt="Phyllite hand specimen">
+      <div class="photo-caption" id="cap-phyllite">Phyllite hand specimen — silky sheen and crinkly foliation surface (3 cm scale)</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Phyllitic cleavage</div></div>
+    <div class="prop"><div class="prop-label">Grain Size</div><div class="prop-val">Fine (microscopic)</div></div>
+    <div class="prop"><div class="prop-label">Luster</div><div class="prop-val">Silky / metallic sheen</div></div>
+    <div class="prop"><div class="prop-label">Metamorphic Grade</div><div class="prop-val">Low–Intermediate</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Shale / Siltstone</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Silvery-green silky sheen visible on foliation surfaces. Crinkly (corrugated) foliation — no longer flat like slate. Crystals just below the resolution of the naked eye. Chlorite often imparts a greenish tint.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Phyllite is intermediate between slate and schist. Mica and chlorite crystals have grown larger than in slate but still cannot be individually identified without magnification. The surface shows a distinctive <strong>silky metallic luster</strong> — far shinier than slate — and the foliation is often crinkled or corrugated rather than perfectly flat.</p>
+    <h4>Index Minerals</h4>
+    <p>Chlorite is the characteristic index mineral of phyllite, giving the rock its often greenish tint. Muscovite is also present in fine flakes but not yet large enough to see individually.</p>
+    <h4>Protolith Evidence</h4>
+    <p>The fine-grained character and clay-mineral-derived mica/chlorite confirm a shale or siltstone protolith. The rock no longer resembles shale — the original bedding is obliterated and foliation has fully developed.</p>
+  </div>
+</div>
+
+<!-- M-3 MICA SCHIST -->
+<div class="specimen" data-type="foliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-3</div>
+      <div class="spec-name">Mica Schist</div>
+      <span class="spec-type type-foliated">Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-mschist','cap-mschist','micaschist1.jpg','Mica schist — coarse silvery mica flakes creating distinct schistose foliation')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-mschist','cap-mschist','micaschist2.jpg','Mica schist — fine-grained variety; mixed dark biotite and white muscovite visible')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-mschist" src="micaschist1.jpg" alt="Mica Schist hand specimen">
+      <div class="photo-caption" id="cap-mschist">Mica schist — coarse silvery mica flakes creating distinct schistose foliation</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Schistosity</div></div>
+    <div class="prop"><div class="prop-label">Grain Size</div><div class="prop-val">Medium–coarse</div></div>
+    <div class="prop"><div class="prop-label">Minerals</div><div class="prop-val">Muscovite, Biotite, Quartz</div></div>
+    <div class="prop"><div class="prop-label">Metamorphic Grade</div><div class="prop-val">Intermediate</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Shale</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Visible, identifiable mica flakes (muscovite = silver/white; biotite = black/dark brown) aligned in a sparkling schistose foliation. Rock breaks along the foliation. Crystals large enough to see and identify without a microscope.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Schist represents a major step up in metamorphic grade from phyllite. The defining feature is <strong>schistosity</strong> — a foliation defined by the alignment of visible, identifiable platy minerals (mainly micas). The rock has a sparkling appearance and feels "flakey" — it readily breaks along the foliation planes.</p>
+    <h4>Mineralogy</h4>
+    <p>Muscovite (white/silver mica) and biotite (black mica) are the primary foliation-forming minerals. Quartz and feldspar are also present in granular form. The specific combination and any porphyroblasts present are used to give schist a more precise name (e.g., biotite-muscovite schist).</p>
+    <h4>Protolith Evidence</h4>
+    <p>The abundant mica, derived from clay mineral recrystallization at intermediate temperatures, confirms a clay-rich (shale) protolith. All evidence of the original sedimentary texture is gone.</p>
+  </div>
+</div>
+
+<!-- M-4 GARNET SCHIST -->
+<div class="specimen" data-type="foliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-4</div>
+      <div class="spec-name">Garnet Schist</div>
+      <span class="spec-type type-foliated">Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-gschist','cap-gschist','garnetschist1.jpg','Garnet schist — dark garnet porphyroblasts scattered in silvery mica matrix (1 cm scale)')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-gschist','cap-gschist','garnetschist2.jpg','Garnet schist — large red-purple garnet dodecahedra in bright muscovite/chlorite matrix')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-gschist" src="garnetschist1.jpg" alt="Garnet Schist hand specimen">
+      <div class="photo-caption" id="cap-gschist">Garnet schist — dark garnet porphyroblasts scattered in silvery mica matrix (1 cm scale)</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Schistosity + porphyroblasts</div></div>
+    <div class="prop"><div class="prop-label">Index Mineral</div><div class="prop-val">Garnet</div></div>
+    <div class="prop"><div class="prop-label">Other Minerals</div><div class="prop-val">Biotite, Muscovite, Quartz</div></div>
+    <div class="prop"><div class="prop-label">Metamorphic Grade</div><div class="prop-val">Intermediate–High</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Shale</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Distinctive red to dark red-purple <strong>garnet porphyroblasts</strong> (dodecahedral crystals) scattered throughout a sparkling mica schist matrix. Garnets are harder than the surrounding mica and often weather out as rounded, lustrous crystals.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Garnet schist is a mica schist that has reached temperatures and pressures sufficient to stabilize garnet as an index mineral. The <strong>garnet porphyroblasts</strong> (large crystals that grew within the finer-grained matrix) are typically dodecahedral — 12-sided — and deep red to maroon in color. They stand out prominently against the silvery mica background.</p>
+    <h4>Porphyroblasts</h4>
+    <p>The term porphyroblast refers to large crystals that grew within a finer-grained metamorphic matrix, analogous to phenocrysts in igneous rocks. Garnets often "trap" earlier-formed minerals as inclusions as they grow, preserving a record of the rock's metamorphic history.</p>
+    <h4>Index Mineral Significance</h4>
+    <p>The presence of garnet indicates higher temperature and pressure conditions than a simple mica schist without garnet. This rock experienced deeper burial or greater tectonic compression than M-3 (Mica Schist).</p>
+  </div>
+</div>
+
+<!-- M-5 GNEISS -->
+<div class="specimen" data-type="foliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-5</div>
+      <div class="spec-name">Gneiss</div>
+      <span class="spec-type type-foliated">Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-gneiss','cap-gneiss','gneiss1.jpg','Gneiss hand specimen — alternating light (quartz/feldspar) and dark (biotite) compositional bands')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-gneiss','cap-gneiss','gneiss2.jpg','Gneiss outcrop — tightly folded gneissic banding; wavy foliation reflects strain, not original layering')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-gneiss" src="gneiss1.jpg" alt="Gneiss hand specimen">
+      <div class="photo-caption" id="cap-gneiss">Gneiss hand specimen — alternating light (quartz/feldspar) and dark (biotite) compositional bands</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Gneissic banding</div></div>
+    <div class="prop"><div class="prop-label">Grain Size</div><div class="prop-val">Coarse</div></div>
+    <div class="prop"><div class="prop-label">Minerals (light)</div><div class="prop-val">Quartz, Feldspar</div></div>
+    <div class="prop"><div class="prop-label">Minerals (dark)</div><div class="prop-val">Biotite, Hornblende</div></div>
+    <div class="prop"><div class="prop-label">Metamorphic Grade</div><div class="prop-val">High</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Shale or Granite</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Coarse-grained rock with distinct alternating <strong>light and dark compositional bands</strong> (gneissic banding). No longer looks like its protolith at all. Bands may be folded or contorted — this is strain, not sedimentary layering.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Gneiss represents the highest-grade foliated metamorphic rock. At these conditions, minerals have fully segregated into alternating light-colored bands (dominated by quartz and feldspar) and dark-colored bands (dominated by biotite ± hornblende). The original protolith is completely unrecognizable.</p>
+    <h4>Gneissic Banding vs. Folding</h4>
+    <p>The wavy or folded appearance of gneiss in outcrops is due to <strong>plastic deformation (strain)</strong> at high temperatures and pressures — the rock was literally flowing like a very stiff solid. The banding itself represents the foliation; the folds represent deformation of that foliation after it formed.</p>
+    <h4>Protolith</h4>
+    <p>Gneiss can form from many protoliths. A shale-derived gneiss (paragneiss) tends to have more biotite; a granite-derived gneiss (orthogneiss) tends to have more feldspar. At the high grade of gneiss, distinguishing the two can be very difficult.</p>
+  </div>
+</div>
+
+<!-- M-6 MARBLE -->
+<div class="specimen" data-type="nonfoliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-6</div>
+      <div class="spec-name">Marble</div>
+      <span class="spec-type type-nonfoliated">Non-Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-marble','cap-marble','marble1.jpg','Marble hand specimen — white, coarsely crystalline, interlocking calcite crystals')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-marble','cap-marble','marble2.jpg','Marble quarry — large blocks of white marble; note the massive, non-foliated character')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-marble" src="marble1.jpg" alt="Marble hand specimen">
+      <div class="photo-caption" id="cap-marble">Marble hand specimen — white, coarsely crystalline, interlocking calcite crystals</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Crystalline, granular</div></div>
+    <div class="prop"><div class="prop-label">Mineral</div><div class="prop-val">Calcite (or dolomite)</div></div>
+    <div class="prop"><div class="prop-label">Color</div><div class="prop-val">White to gray; variable</div></div>
+    <div class="prop"><div class="prop-label">Hardness</div><div class="prop-val">~3 (penny)</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Limestone / Dolostone</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> White to gray, granular crystalline texture. <strong>Fizzes vigorously with dilute HCl</strong> (calcite). Hardness ~3 (cannot scratch glass). Interlocking crystals with smooth surfaces. No foliation. May show color streaks from impurities.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Marble forms when limestone (or dolostone) is metamorphosed. Recrystallization of calcite (or dolomite) produces interlocking crystals of variable size — from fine "sugary" to coarse sparkling grains. The original fossil content, oolites, and sedimentary structures of the limestone are obliterated.</p>
+    <h4>HCl Test</h4>
+    <p>Marble derived from limestone fizzes vigorously with cold dilute HCl. Marble derived from dolostone fizzes weakly, or more strongly only when powdered. This test distinguishes the two varieties.</p>
+    <h4>Why Non-Foliated?</h4>
+    <p>Calcite is not a platy mineral, so it does not align under directed stress the way micas do. Marble therefore lacks foliation regardless of the metamorphic grade. Color banding in some marble varieties reflects original sedimentary layering, not metamorphic foliation.</p>
+  </div>
+</div>
+
+<!-- M-7 QUARTZITE -->
+<div class="specimen" data-type="nonfoliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-7</div>
+      <div class="spec-name">Quartzite</div>
+      <span class="spec-type type-nonfoliated">Non-Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-qtz','cap-qtz','quartzite1.jpg','Quartzite hand specimen — granular, sugary texture; interlocking quartz grains; tan to buff color')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-qtz','cap-qtz','quartzite2.jpg','Quartzite hand specimen — gray variety; ruler for scale; no foliation visible')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-qtz" src="quartzite1.jpg" alt="Quartzite hand specimen">
+      <div class="photo-caption" id="cap-qtz">Quartzite hand specimen — granular, sugary texture; interlocking quartz grains; tan to buff color</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Crystalline, granular</div></div>
+    <div class="prop"><div class="prop-label">Mineral</div><div class="prop-val">Quartz (fused)</div></div>
+    <div class="prop"><div class="prop-label">Hardness</div><div class="prop-val">7 (scratches glass)</div></div>
+    <div class="prop"><div class="prop-label">Color</div><div class="prop-val">White, gray, tan, pink</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Quartz sandstone</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Very hard (H=7; scratches glass easily). "Sugary" granular texture; <strong>breaks across quartz grains</strong> (unlike sandstone, where grains rub off). No foliation. No HCl reaction. Color variable; white to tan or pink.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Quartzite forms when quartz sandstone is metamorphosed. Heat and pressure cause the quartz grains to recrystallize and fuse together — the grain boundaries dissolve and reform as a continuous interlocking mosaic of quartz crystals. This eliminates the void spaces and cementing material of the original sandstone.</p>
+    <h4>Quartzite vs. Sandstone</h4>
+    <p>The critical test: scratch the surface and check if grains rub off. In sandstone, individual grains detach easily. In quartzite, the surface remains intact because the grains are interlocked. Quartzite also breaks across grains (conchoidal to irregular fracture through the grains) rather than around them.</p>
+    <h4>Why Non-Foliated?</h4>
+    <p>Quartz is not a platy mineral and does not align under stress. Quartzite therefore lacks foliation even if it formed under directed stress. Color reflects trace impurities in the original sandstone (iron oxides = pink/red; organic matter = gray).</p>
+  </div>
+</div>
+
+<!-- M-8 METACONGLOMERATE -->
+<div class="specimen" data-type="nonfoliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-8</div>
+      <div class="spec-name">Metaconglomerate</div>
+      <span class="spec-type type-nonfoliated">Non-Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-meta','cap-meta','metaconglomerate1.jpg','Metaconglomerate — rounded clasts still visible; fused into matrix; protolith texture preserved')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-meta','cap-meta','metaconglomerate2.jpg','Metaconglomerate — coarse variety; interlocking quartz and feldspar-rich clasts; no foliation')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-meta" src="metaconglomerate1.jpg" alt="Metaconglomerate hand specimen">
+      <div class="photo-caption" id="cap-meta">Metaconglomerate — rounded clasts still visible; fused into matrix; protolith texture preserved</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Conglomeratic (preserved)</div></div>
+    <div class="prop"><div class="prop-label">Clast Shape</div><div class="prop-val">Rounded to sub-rounded</div></div>
+    <div class="prop"><div class="prop-label">Key Feature</div><div class="prop-val">Breaks across clasts</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Conglomerate</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Original conglomerate texture still recognizable — <strong>rounded clasts visible</strong> in a fused matrix. Unlike unmetamorphosed conglomerate, the rock breaks <em>across</em> the clasts rather than around them. Clasts may be slightly flattened or stretched if deformation occurred.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Metaconglomerate forms when conglomerate undergoes metamorphism. The matrix between the clasts recrystallizes and fuses with the clasts, creating an interlocked texture. The original rounded pebbles remain visible — this is the key evidence for the conglomerate protolith.</p>
+    <h4>Metaconglomerate vs. Conglomerate</h4>
+    <p>Strike the rock: conglomerate breaks around pebbles (along the weaker matrix-clast boundary); metaconglomerate breaks through pebbles (the matrix is now as strong as or stronger than the clasts). Also, individual clasts in metaconglomerate cannot be loosened by hand.</p>
+    <h4>Protolith Evidence</h4>
+    <p>The visible rounded clasts are unambiguous evidence of a conglomerate protolith. The rounded shape of the clasts shows they were transported by water before being lithified and subsequently metamorphosed.</p>
+  </div>
+</div>
+
+<!-- M-9 AMPHIBOLITE -->
+<div class="specimen" data-type="nonfoliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-9</div>
+      <div class="spec-name">Amphibolite</div>
+      <span class="spec-type type-nonfoliated">Non-Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-amphi','cap-amphi','amphibolite1.jpg','Amphibolite hand specimen — coarse interlocking hornblende and plagioclase crystals; dark overall')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-amphi','cap-amphi','amphibolite2.jpg','Amphibolite outcrop — parallel fracture lines; dark color; no foliation visible at outcrop scale')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-amphi" src="amphibolite1.jpg" alt="Amphibolite hand specimen">
+      <div class="photo-caption" id="cap-amphi">Amphibolite hand specimen — coarse interlocking hornblende and plagioclase crystals; dark overall</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Crystalline, medium–coarse</div></div>
+    <div class="prop"><div class="prop-label">Key Mineral</div><div class="prop-val">Hornblende (amphibole)</div></div>
+    <div class="prop"><div class="prop-label">Other Mineral</div><div class="prop-val">Plagioclase feldspar</div></div>
+    <div class="prop"><div class="prop-label">Color</div><div class="prop-val">Dark gray to black</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Basalt / Gabbro</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Dark, medium- to coarse-grained rock dominated by <strong>blade-like hornblende crystals</strong> (black, with characteristic two-direction cleavage at 60°/120°). Lighter plagioclase crystals visible between hornblende blades. No significant foliation in hand specimen.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Amphibolite forms when mafic igneous rocks (basalt, gabbro) are metamorphosed under intermediate- to high-grade conditions. The original pyroxene and plagioclase of the igneous rock are replaced by hornblende (an amphibole) and new plagioclase through neocrystallization. The result is a dark, dense rock dominated by blade-like hornblende crystals.</p>
+    <h4>Identifying Hornblende</h4>
+    <p>Look for elongated black crystals with two cleavage directions that intersect at approximately 60° and 120° (unlike pyroxene, which cleaves at ~90°). Hornblende crystals in amphibolite are often aligned, giving some specimens a weakly foliated appearance.</p>
+    <h4>Protolith Evidence</h4>
+    <p>The mafic (dark, Fe/Mg-rich) composition — dominated by hornblende and plagioclase — indicates a mafic igneous protolith (basalt or its coarse-grained equivalent, gabbro). This composition could not be derived from a sedimentary rock.</p>
+  </div>
+</div>
+
+<!-- M-10 HORNFELS -->
+<div class="specimen" data-type="nonfoliated">
+  <div class="spec-header">
+    <div>
+      <div class="spec-num">Specimen M-10</div>
+      <div class="spec-name">Hornfels</div>
+      <span class="spec-type type-nonfoliated">Non-Foliated</span>
+    </div>
+  </div>
+  <div class="photo-area">
+    <div class="photo-tabs">
+      <button class="photo-tab active" onclick="switchPhotoId(this,'img-hornfels','cap-hornfels','hornfels1.jpg','Hornfels hand specimen — dark, banded variety; dense and fine-grained; ruler for scale')">Photo 1</button>
+      <button class="photo-tab" onclick="switchPhotoId(this,'img-hornfels','cap-hornfels','hornfels2.jpg','Hornfels outcrop — coastal cliff showing banded hornfels; formed adjacent to igneous intrusion')">Photo 2</button>
+    </div>
+    <div class="photo-wrap">
+      <img id="img-hornfels" src="hornfels1.jpg" alt="Hornfels hand specimen">
+      <div class="photo-caption" id="cap-hornfels">Hornfels hand specimen — dark, banded variety; dense and fine-grained; ruler for scale</div>
+    </div>
+  </div>
+  <div class="spec-props">
+    <div class="prop"><div class="prop-label">Texture</div><div class="prop-val">Fine to microcrystalline</div></div>
+    <div class="prop"><div class="prop-label">Luster</div><div class="prop-val">Matte / dull</div></div>
+    <div class="prop"><div class="prop-label">Color</div><div class="prop-val">Dark gray to black</div></div>
+    <div class="prop"><div class="prop-label">Environment</div><div class="prop-val">Contact metamorphism</div></div>
+    <div class="prop"><div class="prop-label">Protolith</div><div class="prop-val">Many rock types</div></div>
+  </div>
+  <div class="key-feature"><strong>Key ID Feature:</strong> Dark, dense, very fine-grained rock with a <strong>matte "baked" luster</strong>. Extremely hard. No foliation — heat-only metamorphism (contact) does not produce directed stress. Found in the aureole (zone) adjacent to igneous intrusions.</div>
+  <button class="details-toggle" onclick="togDet(this)">▼ More Details</button>
+  <div class="details-body">
+    <h4>Full Description</h4>
+    <p>Hornfels is the general term for a fine-grained, non-foliated rock produced by contact metamorphism — heat from an igneous intrusion "baking" the surrounding country rock. Because contact metamorphism involves heat but not directed pressure, no foliation develops. The original rock is essentially recrystallized in place.</p>
+    <h4>Why Non-Foliated?</h4>
+    <p>Contact metamorphism involves isotropic (equal in all directions) heat, not directed stress. Without directed stress, there is no force to align platy minerals in one direction, so no foliation develops. The texture becomes granoblastic — equant interlocking crystals with no preferred orientation.</p>
+    <h4>Protolith</h4>
+    <p>Hornfels is a non-specific name — it can form from shale, limestone, sandstone, or even igneous rocks. The specific mineralogy of the hornfels reflects the protolith composition, but the fine-grained, baked appearance is consistent regardless. Hornfels from shale often contains dark silicate minerals; from limestone it may be lighter in color.</p>
+  </div>
+</div>
+
+<div class="site-nav">
+  <a href="index.html">← Lab Guide</a>
+  <span class="current-site">2 Rock ID</span>
+  <a href="meta-lab-form.html">3 Lab Form →</a>
+</div>
+
+<script>
+function filter(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.specimen').forEach(s => {
+    if (type === 'all' || s.dataset.type === type) s.style.display = '';
+    else s.style.display = 'none';
+  });
+}
+function togDet(btn) {
+  var body = btn.nextElementSibling;
+  var open = body.classList.toggle('open');
+  btn.textContent = (open ? '▲' : '▼') + ' More Details';
+}
+function switchPhotoId(tab, imgId, capId, src, caption) {
+  document.getElementById(imgId).src = src;
+  document.getElementById(capId).textContent = caption;
+  var tabs = tab.parentElement.querySelectorAll('.photo-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+}
+function switchPhoto(tab, src, caption) {
+  var wrap = tab.closest('.photo-area').querySelector('.photo-wrap');
+  wrap.querySelector('img').src = src;
+  wrap.querySelector('.photo-caption').textContent = caption;
+  tab.parentElement.querySelectorAll('.photo-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+}
+</script>
+</body>
+</html>
