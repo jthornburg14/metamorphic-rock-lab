@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metamorphic Rocks Lab - Lab Guide</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.7;color:#222;background:#fff;max-width:860px;margin:0 auto;padding:0 1.5rem 4rem}
+nav{display:flex;align-items:center;gap:0.4rem;font-size:13px;font-family:Arial,sans-serif;padding:1rem 0;color:#666;border-bottom:1px solid #e0e0e0;margin-bottom:2rem;flex-wrap:wrap}
+nav a{color:#1a6b3c;text-decoration:none}
+nav a:hover{text-decoration:underline}
+nav .sep{color:#bbb}
+nav .current{color:#222;font-weight:600}
+.course-tag{font-size:12px;color:#666;font-family:Arial,sans-serif;margin-bottom:0.3rem;letter-spacing:0.05em;text-transform:uppercase}
+h1{font-size:2.2rem;font-weight:400;line-height:1.2;margin-bottom:0.2rem}
+h1 em{font-style:italic;color:#555}
+.meta{font-family:Arial,sans-serif;font-size:13px;color:#888;margin-bottom:2.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+h2{font-size:1.4rem;font-weight:600;margin:2.5rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:2px solid #1a6b3c;font-family:Arial,sans-serif}
+h3{font-size:1.1rem;font-weight:600;margin:1.5rem 0 0.5rem;font-family:Arial,sans-serif;color:#1a6b3c}
+p{margin-bottom:1rem}
+.overview-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:1.5rem 0}
+.ocard{background:#f6faf8;border:1px solid #b8ddc8;border-radius:8px;padding:1rem;text-align:center}
+.ocard .icon{font-size:1.5rem;margin-bottom:0.4rem}
+.ocard .label{font-size:13px;font-family:Arial,sans-serif;font-weight:600;color:#1a6b3c;margin-bottom:0.2rem}
+.ocard .sub{font-size:12px;color:#555;font-family:Arial,sans-serif}
+.objectives{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem;margin:1rem 0}
+.obj{background:#f9f9f9;border-left:3px solid #1a6b3c;padding:0.7rem 1rem;border-radius:0 6px 6px 0}
+.obj strong{display:block;font-family:Arial,sans-serif;font-size:13px;font-weight:600;color:#1a6b3c;margin-bottom:0.2rem}
+.obj span{font-size:13px;color:#444;font-family:Arial,sans-serif}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:14px;font-family:Arial,sans-serif}
+th{background:#1a6b3c;color:#fff;padding:0.6rem 0.8rem;text-align:left;font-weight:600}
+td{padding:0.55rem 0.8rem;border-bottom:1px solid #e0e0e0;vertical-align:top}
+tr:nth-child(even) td{background:#f6faf8}
+td strong{color:#1a6b3c}
+.decision-tree{border:1px solid #cde6d6;border-radius:8px;overflow:hidden;margin:1.5rem 0}
+.dt-header{background:#1a6b3c;color:#fff;padding:0.8rem 1rem;font-family:Arial,sans-serif;font-weight:600;font-size:14px}
+.dt-step{border-bottom:1px solid #cde6d6;padding:0;font-family:Arial,sans-serif}
+.dt-step:last-child{border-bottom:none}
+.dt-q{background:#f6faf8;padding:0.7rem 1rem;font-size:13px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none}
+.dt-q:hover{background:#e8f4ec}
+.dt-a{display:none;padding:0.7rem 1rem 0.8rem;font-size:13px;background:#fff;color:#333;line-height:1.6}
+.dt-a.open{display:block}
+.dt-arrow{font-size:11px;color:#888;transition:transform 0.2s}
+.dt-arrow.open{transform:rotate(180deg)}
+.grade-bar{display:flex;margin:1rem 0;border-radius:6px;overflow:hidden;font-family:Arial,sans-serif;font-size:12px;font-weight:600}
+.gb-seg{padding:0.6rem 0.5rem;text-align:center;flex:1;color:#fff}
+.gb-low{background:#5a9e7a}
+.gb-mid{background:#2e7d55}
+.gb-high{background:#1a4d32}
+.index-minerals{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:0.6rem;margin:1rem 0}
+.im-card{border:1px solid #cde6d6;border-radius:6px;padding:0.7rem;text-align:center;background:#fff}
+.im-card .grade{font-size:10px;font-family:Arial,sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.3rem;padding:2px 6px;border-radius:3px;display:inline-block}
+.grade-l{background:#d4edda;color:#155724}
+.grade-m{background:#fff3cd;color:#856404}
+.grade-h{background:#f8d7da;color:#721c24}
+.im-card .name{font-size:13px;font-weight:600;font-family:Arial,sans-serif;color:#1a4d32}
+.im-card .note{font-size:11px;color:#666;font-family:Arial,sans-serif;margin-top:0.2rem}
+.rock-sequence{display:flex;align-items:center;gap:0;margin:1.5rem 0;flex-wrap:wrap}
+.rs-item{background:#f6faf8;border:1px solid #b8ddc8;border-radius:6px;padding:0.6rem 0.8rem;text-align:center;font-family:Arial,sans-serif;font-size:12px;font-weight:600;color:#1a4d32;min-width:80px}
+.rs-arrow{color:#1a6b3c;font-size:1.1rem;padding:0 0.3rem}
+.rs-label{font-size:10px;font-weight:400;color:#666;display:block;margin-top:2px}
+.callout{background:#f6faf8;border:1px solid #b8ddc8;border-radius:6px;padding:1rem 1.2rem;margin:1rem 0;font-family:Arial,sans-serif;font-size:14px}
+.callout strong{color:#1a4d32}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1rem 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}.rock-sequence{gap:0.3rem}.rs-arrow{display:none}}
+.type-card{border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;margin-bottom:0.8rem}
+.type-card .tc-head{padding:0.7rem 1rem;font-family:Arial,sans-serif;font-weight:600;font-size:14px;color:#fff}
+.tc-foliated{background:#2e7d55}
+.tc-nonfoliated{background:#5a6b8a}
+.type-card .tc-body{padding:0.8rem 1rem;font-size:13px;font-family:Arial,sans-serif;color:#333;line-height:1.6}
+.site-nav{display:flex;gap:1rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid #e0e0e0;font-family:Arial,sans-serif;font-size:13px;flex-wrap:wrap}
+.site-nav a{background:#1a6b3c;color:#fff;padding:0.6rem 1.2rem;border-radius:6px;text-decoration:none;font-weight:600}
+.site-nav a:hover{background:#155731}
+.site-nav .current-site{background:#f6faf8;color:#1a6b3c;border:1px solid #b8ddc8;font-weight:600;padding:0.6rem 1.2rem;border-radius:6px}
+.info-box{background:#e8f4ec;border-left:4px solid #1a6b3c;padding:0.8rem 1rem;border-radius:0 6px 6px 0;margin:1rem 0;font-family:Arial,sans-serif;font-size:13px}
+.warn-box{background:#fff8e1;border-left:4px solid #f59e0b;padding:0.8rem 1rem;border-radius:0 6px 6px 0;margin:1rem 0;font-family:Arial,sans-serif;font-size:13px}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="current">1 Lab Guide</span>
+  <span class="sep">›</span>
+  <a href="meta-rock-id.html">2 Rock ID</a>
+  <span class="sep">›</span>
+  <a href="meta-lab-form.html">3 Lab Form</a>
+</nav>
+
+<p class="course-tag">EES 2001 · Physical Geology</p>
+<h1>Metamorphic Rocks <em>Laboratory Guide</em></h1>
+<div class="meta">
+  <span>Lab 5</span>
+  <span>Estimated time: 2 hours</span>
+  <span>Refer to lecture slides for additional context</span>
+</div>
+
+<div class="overview-cards">
+  <div class="ocard"><div class="icon">🔥</div><div class="label">Driving Forces</div><div class="sub">Heat · Pressure · Fluids</div></div>
+  <div class="ocard"><div class="icon">🪨</div><div class="label">Rock Types</div><div class="sub">Foliated · Non-Foliated</div></div>
+  <div class="ocard"><div class="icon">💎</div><div class="label">Index Minerals</div><div class="sub">Chlorite → Sillimanite</div></div>
+  <div class="ocard"><div class="icon">🗺</div><div class="label">Goal</div><div class="sub">Identify rocks + determine grade</div></div>
+</div>
+
+<h2>Lab Introduction</h2>
+<p>Metamorphic rocks are rocks that have been <strong>changed in the solid state</strong> by heat, pressure, and/or hydrothermal fluids — without melting. They record some of the most extreme conditions in Earth's crust and are fundamental to understanding mountain building, subduction, and the rock cycle.</p>
+<p>In this lab you will examine hand specimens and images to identify metamorphic rocks, determine their texture and mineralogy, assess their metamorphic grade, and infer their protolith (parent rock).</p>
+
+<h2>Learning Objectives</h2>
+<div class="objectives">
+  <div class="obj"><strong>Classify Texture</strong><span>Distinguish foliated from non-foliated metamorphic textures.</span></div>
+  <div class="obj"><strong>Identify Rocks</strong><span>Name slate, phyllite, schist, gneiss, quartzite, marble, hornfels, amphibolite, and metaconglomerate.</span></div>
+  <div class="obj"><strong>Determine Grade</strong><span>Assign low, intermediate, or high metamorphic grade based on texture and index minerals.</span></div>
+  <div class="obj"><strong>Infer Protolith</strong><span>Use mineralogy and texture to identify the parent rock and provide evidence.</span></div>
+  <div class="obj"><strong>Use ID Keys</strong><span>Apply the metamorphic rock identification table to unknown specimens.</span></div>
+  <div class="obj"><strong>Recognize Index Minerals</strong><span>Identify chlorite, garnet, staurolite, and sillimanite as metamorphic grade indicators.</span></div>
+</div>
+
+<h2>Lab Materials</h2>
+<p>For this lab, you will use:</p>
+<ul style="margin:0.5rem 0 1rem 1.5rem;font-family:Arial,sans-serif;font-size:14px;line-height:2">
+  <li>This interactive lab guide (Site 1 of 3)</li>
+  <li><strong>Rock identification site</strong> with specimen images (Site 2 of 3)</li>
+  <li><strong>Lab ID form</strong> — your submission document (Site 3 of 3)</li>
+  <li>Your course textbook and lecture notes as reference</li>
+</ul>
+<div class="info-box"><strong>How to navigate this lab:</strong> Use this guide to review concepts as you work through the rock specimens. The ID tables on this page match the identification site. Record all answers on the Lab ID Form.</div>
+
+<h2>What Is Metamorphism?</h2>
+<p>Metamorphism occurs when pre-existing rock (the <strong>protolith</strong>) is subjected to conditions — heat, pressure, or chemically active fluids — that cause <strong>solid-state mineralogical and textural changes</strong>. The rock never melts; if it did, the process would be igneous, not metamorphic.</p>
+
+<h3>The Three Agents of Metamorphism</h3>
+<table>
+  <tr><th>Agent</th><th>Source</th><th>Effect</th></tr>
+  <tr><td><strong>Heat</strong></td><td>Magmatic intrusions, geothermal gradient, friction</td><td>Drives recrystallization and new mineral growth</td></tr>
+  <tr><td><strong>Pressure</strong></td><td>Burial (confining) or tectonic (directed/differential)</td><td>Compacts rock; directed stress causes mineral alignment (foliation)</td></tr>
+  <tr><td><strong>Hydrothermal Fluids</strong></td><td>Magma-derived or circulating groundwater</td><td>Transport ions, enable chemical reactions, cause metasomatism</td></tr>
+</table>
+
+<h3>Types of Metamorphic Change</h3>
+<table>
+  <tr><th>Process</th><th>Description</th><th>Result</th></tr>
+  <tr><td><strong>Recrystallization</strong></td><td>Existing minerals grow larger without changing composition</td><td>Coarser grain size; e.g., limestone → marble</td></tr>
+  <tr><td><strong>Neocrystallization</strong></td><td>New minerals form from original mineral assemblage</td><td>New index minerals appear (garnet, staurolite)</td></tr>
+  <tr><td><strong>Reorientation</strong></td><td>Platy minerals rotate perpendicular to directed stress</td><td>Foliation — parallel alignment of minerals</td></tr>
+  <tr><td><strong>Pressure Solution</strong></td><td>Minerals dissolve under stress and reprecipitate elsewhere</td><td>Grain flattening; stylolites</td></tr>
+</table>
+
+<h2>Metamorphic Environments</h2>
+<table>
+  <tr><th>Environment</th><th>Conditions</th><th>Typical Rocks</th></tr>
+  <tr><td><strong>Contact Metamorphism</strong></td><td>High heat only; adjacent to igneous intrusions; low to moderate pressure</td><td>Hornfels, marble, quartzite</td></tr>
+  <tr><td><strong>Regional Metamorphism</strong></td><td>Heat + pressure over large areas; burial or convergent tectonics</td><td>Slate, phyllite, schist, gneiss</td></tr>
+  <tr><td><strong>Dynamic Metamorphism</strong></td><td>High pressure, low temperature; fault zones</td><td>Mylonite</td></tr>
+  <tr><td><strong>Shock Metamorphism</strong></td><td>Extreme instantaneous pressure; meteorite impact</td><td>Shocked quartz, coesite</td></tr>
+</table>
+
+<h2>Classifying Metamorphic Rocks</h2>
+<p>The first step in identifying a metamorphic rock is always <strong>texture</strong>: does it show foliation (planar mineral alignment) or not?</p>
+
+<div class="two-col">
+  <div class="type-card">
+    <div class="tc-head tc-foliated">Foliated</div>
+    <div class="tc-body">Minerals arranged into parallel planar layers. Results from directed (differential) stress causing platy minerals to align. Grain size and the type of foliation increase with metamorphic grade.<br><br>Examples: Slate, Phyllite, Schist, Gneiss</div>
+  </div>
+  <div class="type-card">
+    <div class="tc-head tc-nonfoliated">Non-Foliated</div>
+    <div class="tc-body">No planar mineral alignment. Texture is granular or massive. Typically forms when the rock is composed of minerals that are not platy (e.g., quartz, calcite) or formed under uniform pressure (contact metamorphism).<br><br>Examples: Quartzite, Marble, Hornfels, Amphibolite</div>
+  </div>
+</div>
+
+<h2>Identification Decision Tree</h2>
+<div class="decision-tree">
+  <div class="dt-header">Step-by-step metamorphic rock identification</div>
+  <div class="dt-step">
+    <div class="dt-q" onclick="tog(this)">Step 1: Is the rock foliated (planar mineral alignment visible)? <span class="dt-arrow">▼</span></div>
+    <div class="dt-a"><strong>YES →</strong> The rock has a layered or banded texture. Proceed to Step 2 to determine the type of foliation.<br><strong>NO →</strong> The rock lacks foliation. Proceed to Step 4 to classify by composition.</div>
+  </div>
+  <div class="dt-step">
+    <div class="dt-q" onclick="tog(this)">Step 2 (Foliated): Can you see individual mineral grains? <span class="dt-arrow">▼</span></div>
+    <div class="dt-a"><strong>NO — very fine-grained, dull to slight sheen:</strong> → <strong>Slate</strong> (low grade; slaty cleavage; protolith = shale)<br><strong>NO — fine-grained but with a visible silky sheen, crinkly surface:</strong> → <strong>Phyllite</strong> (low-intermediate grade; chlorite common)<br><strong>YES — visible platy crystals, sparkling foliation:</strong> → Step 3</div>
+  </div>
+  <div class="dt-step">
+    <div class="dt-q" onclick="tog(this)">Step 3 (Foliated, visible crystals): What is the foliation style? <span class="dt-arrow">▼</span></div>
+    <div class="dt-a"><strong>Schistose foliation (wrinkly, platy mica flakes identifiable):</strong> → <strong>Schist</strong>. Identify specific index minerals (chlorite, biotite, garnet, staurolite, sillimanite) to determine grade. Name accordingly: Garnet-Mica Schist, etc.<br><strong>Gneissic banding (alternating light and dark bands, coarse-grained):</strong> → <strong>Gneiss</strong> (high grade; light = quartz/feldspar, dark = biotite/hornblende)</div>
+  </div>
+  <div class="dt-step">
+    <div class="dt-q" onclick="tog(this)">Step 4 (Non-Foliated): What is the dominant mineral? <span class="dt-arrow">▼</span></div>
+    <div class="dt-a"><strong>Quartz (scratches glass easily, H=7, sugary texture, no foliation):</strong> → <strong>Quartzite</strong>; protolith = quartz sandstone<br><strong>Calcite (fizzes with dilute HCl, white to gray, crystalline):</strong> → <strong>Marble</strong>; protolith = limestone or dolostone<br><strong>Amphibole/Hornblende (dark, blade-like crystals, medium-coarse):</strong> → <strong>Amphibolite</strong>; protolith = basalt/gabbro<br><strong>Dark, fine-grained, "baked" appearance, very hard, matte luster:</strong> → <strong>Hornfels</strong>; any protolith (contact metamorphism)<br><strong>Conglomerate texture preserved, clasts fused:</strong> → <strong>Metaconglomerate</strong>; protolith = conglomerate</div>
+  </div>
+</div>
+
+<h2>Foliated Rocks in Detail</h2>
+
+<h3>The Foliated Sequence: Shale → Slate → Phyllite → Schist → Gneiss</h3>
+<p>When shale (the protolith) is progressively metamorphosed, it passes through a series of distinct rock types. Each step involves increasing grain size, coarser and more obvious foliation, and new index minerals.</p>
+
+<div class="rock-sequence">
+  <div class="rs-item">Shale<span class="rs-label">Protolith</span></div>
+  <span class="rs-arrow">→</span>
+  <div class="rs-item">Slate<span class="rs-label">Low grade</span></div>
+  <span class="rs-arrow">→</span>
+  <div class="rs-item">Phyllite<span class="rs-label">Low–Intermediate</span></div>
+  <span class="rs-arrow">→</span>
+  <div class="rs-item">Schist<span class="rs-label">Intermediate–High</span></div>
+  <span class="rs-arrow">→</span>
+  <div class="rs-item">Gneiss<span class="rs-label">High grade</span></div>
+</div>
+
+<table>
+  <tr><th>Rock</th><th>Grain Size</th><th>Foliation Type</th><th>Key Features</th><th>Grade</th></tr>
+  <tr><td><strong>Slate</strong></td><td>Very fine (sub-microscopic)</td><td>Slaty cleavage</td><td>Flat, breaks in sheets; dull to slight sheen; harder than shale; dark gray to black</td><td>Low</td></tr>
+  <tr><td><strong>Phyllite</strong></td><td>Fine (microscopic)</td><td>Phyllitic cleavage</td><td>Crinkly/wavy surface; silky metallic sheen; crystals visible under hand lens only; chlorite often present (greenish tint)</td><td>Low–Intermediate</td></tr>
+  <tr><td><strong>Mica Schist</strong></td><td>Medium–coarse</td><td>Schistosity</td><td>Visible mica flakes (muscovite/biotite); sparkling foliation; crystals identifiable; porphyroblasts common</td><td>Intermediate</td></tr>
+  <tr><td><strong>Garnet Schist</strong></td><td>Medium–coarse</td><td>Schistosity</td><td>As above + distinctive red-purple dodecahedral garnet porphyroblasts scattered in mica matrix</td><td>Intermediate–High</td></tr>
+  <tr><td><strong>Gneiss</strong></td><td>Coarse</td><td>Gneissic banding</td><td>Alternating light (quartz + feldspar) and dark (biotite + hornblende) bands; no longer looks like shale; strain folds common</td><td>High</td></tr>
+</table>
+
+<div class="warn-box"><strong>Watch out — wavy gneiss:</strong> The wavy appearance of gneiss is often from strain (plastic deformation), not foliation itself. Look at the cross section: foliation is defined by the alternating compositional bands, not the folds.</div>
+
+<h2>Non-Foliated Rocks in Detail</h2>
+<table>
+  <tr><th>Rock</th><th>Texture</th><th>Key Features</th><th>Protolith</th><th>ID Tests</th></tr>
+  <tr><td><strong>Quartzite</strong></td><td>Crystalline, granular</td><td>"Sugary" appearance; breaks across grains (unlike sandstone); very hard (H=7); white to gray, pink, or buff</td><td>Quartz sandstone</td><td>Scratches glass; no HCl reaction; grains fused (no grains rub off)</td></tr>
+  <tr><td><strong>Marble</strong></td><td>Crystalline, granular</td><td>White to gray; interlocking calcite crystals; may have color streaks; smooth to touch</td><td>Limestone / Dolostone</td><td>Fizzes with dilute HCl (calcite marble); hardness ~3</td></tr>
+  <tr><td><strong>Hornfels</strong></td><td>Fine to microcrystalline</td><td>Dark gray to black; matte "baked" luster; very hard; dense; found near igneous contacts</td><td>Many rock types</td><td>Very hard; no foliation; dark color; fine-grained</td></tr>
+  <tr><td><strong>Amphibolite</strong></td><td>Medium–coarse crystalline</td><td>Dominated by hornblende (black blade-like crystals) + plagioclase; dark overall; may show weak foliation</td><td>Basalt / Gabbro</td><td>Dark color; hornblende cleavage (60°/120°); no HCl reaction</td></tr>
+  <tr><td><strong>Metaconglomerate</strong></td><td>Conglomeratic</td><td>Recognizable rounded clasts; clasts fused/interlocked with matrix; breaks across clasts rather than around them; clasts may be stretched</td><td>Conglomerate</td><td>Visible rounded clasts; breaks across pebbles; protolith texture preserved</td></tr>
+</table>
+
+<h2>Metamorphic Grade</h2>
+<p>Metamorphic grade is the measure of the degree of metamorphism — the cumulative effect of temperature and pressure. It ranges from <strong>low grade</strong> (minimal change, protolith still recognizable) to <strong>high grade</strong> (extensive recrystallization, protolith unrecognizable).</p>
+
+<div class="grade-bar">
+  <div class="gb-seg gb-low">Low Grade<br><small style="font-weight:400">~200–400°C</small></div>
+  <div class="gb-seg gb-mid">Intermediate Grade<br><small style="font-weight:400">~400–600°C</small></div>
+  <div class="gb-seg gb-high">High Grade<br><small style="font-weight:400">&gt;600°C</small></div>
+</div>
+
+<div class="callout">
+  <strong>Important:</strong> Metamorphic grade can be determined from <em>foliated</em> rocks. Non-foliated rocks (quartzite, marble, hornfels) do not record grade in the same way — we typically note "N/A" or "not determined" for grade on non-foliated specimens.
+</div>
+
+<h2>Index Minerals</h2>
+<p>Index minerals form only within specific temperature and pressure ranges — their <strong>stability fields</strong>. Finding a particular index mineral in a rock tells you the minimum conditions that rock experienced. The classic sequence for shale-derived rocks goes from low to high grade:</p>
+
+<div class="index-minerals">
+  <div class="im-card"><div class="grade grade-l">Low</div><div class="name">Chlorite</div><div class="note">Green; platy; low T &amp; P</div></div>
+  <div class="im-card"><div class="grade grade-l">Low</div><div class="name">Muscovite</div><div class="note">White/silver mica; low–mid</div></div>
+  <div class="im-card"><div class="grade grade-m">Intermediate</div><div class="name">Biotite</div><div class="note">Black mica; mid grade</div></div>
+  <div class="im-card"><div class="grade grade-m">Intermediate</div><div class="name">Garnet</div><div class="note">Red dodecahedra; mid–high</div></div>
+  <div class="im-card"><div class="grade grade-m">Intermediate</div><div class="name">Staurolite</div><div class="note">Brown cross-shaped crystals</div></div>
+  <div class="im-card"><div class="grade grade-h">High</div><div class="name">Sillimanite</div><div class="note">Fibrous; high grade</div></div>
+  <div class="im-card"><div class="grade grade-h">High</div><div class="name">Kyanite</div><div class="note">Blue blades; high P</div></div>
+</div>
+
+<table>
+  <tr><th>Index Mineral</th><th>Grade</th><th>Appearance</th><th>Typical Rock</th></tr>
+  <tr><td><strong>Chlorite</strong></td><td>Low</td><td>Green, platy; gives greenish tint to phyllite</td><td>Phyllite, low-grade schist</td></tr>
+  <tr><td><strong>Muscovite</strong></td><td>Low–Intermediate</td><td>White/silver platy mica flakes</td><td>Mica schist</td></tr>
+  <tr><td><strong>Biotite</strong></td><td>Intermediate</td><td>Black/dark brown platy mica</td><td>Mica schist</td></tr>
+  <tr><td><strong>Garnet</strong></td><td>Intermediate–High</td><td>Red-purple dodecahedral porphyroblasts, scattered in mica matrix</td><td>Garnet schist</td></tr>
+  <tr><td><strong>Staurolite</strong></td><td>Intermediate–High</td><td>Brown; often forms distinctive cruciform (cross-shaped) twin crystals</td><td>Staurolite schist</td></tr>
+  <tr><td><strong>Sillimanite</strong></td><td>High</td><td>Fibrous, needle-like white crystals; silky luster</td><td>High-grade schist, gneiss</td></tr>
+  <tr><td><strong>Kyanite</strong></td><td>High pressure</td><td>Blue blade-like crystals; variable hardness (H=5 along, H=7 across)</td><td>High-pressure schist/gneiss</td></tr>
+</table>
+
+<h2>Full Identification Table</h2>
+<table>
+  <tr><th>Texture</th><th>Possible Index Minerals / Minerals Present</th><th>Metamorphic Grade</th><th>Protolith (with evidence)</th><th>Rock Name</th></tr>
+  <tr><td>Foliated — slaty cleavage; very fine-grained; dull to slight sheen; breaks in flat sheets</td><td>Microscopic clay/mica (not visible)</td><td>Low</td><td>Shale (fine-grained, fissile protolith)</td><td><strong>Slate</strong></td></tr>
+  <tr><td>Foliated — fine-grained; silky metallic sheen; crinkly/wavy foliation surfaces</td><td>Chlorite (green tint); fine micas (visible only under hand lens)</td><td>Low–Intermediate</td><td>Shale or siltstone (fine-grained clastic)</td><td><strong>Phyllite</strong></td></tr>
+  <tr><td>Foliated — schistosity; visible platy mica flakes (muscovite/biotite); sparkling; breaks along foliation</td><td>Muscovite, Biotite, Chlorite, Quartz</td><td>Intermediate</td><td>Shale or siltstone (clay-rich protolith)</td><td><strong>Mica Schist</strong></td></tr>
+  <tr><td>Foliated — schistosity with visible garnet porphyroblasts; mica matrix</td><td>Garnet (red, dodecahedral), Biotite, Muscovite</td><td>Intermediate–High</td><td>Shale (garnet indicates higher T&amp;P than mica schist)</td><td><strong>Garnet Schist</strong></td></tr>
+  <tr><td>Foliated — gneissic banding; coarse-grained; alternating light and dark bands</td><td>Quartz, Feldspar (light bands); Biotite, Hornblende (dark bands)</td><td>High</td><td>Shale or granite (banding replaces original fabric)</td><td><strong>Gneiss</strong></td></tr>
+  <tr><td>Non-foliated — crystalline, granular ("sugary"); very hard</td><td>Quartz (interlocking, fused grains)</td><td>N/A (non-foliated)</td><td>Quartz sandstone (fused quartz grains; breaks across grains)</td><td><strong>Quartzite</strong></td></tr>
+  <tr><td>Non-foliated — crystalline; white to gray; smooth</td><td>Calcite (or dolomite) — interlocking crystals</td><td>N/A (non-foliated)</td><td>Limestone/dolostone (carbonate effervescence)</td><td><strong>Marble</strong></td></tr>
+  <tr><td>Non-foliated — fine to microcrystalline; dark; dense; matte luster; "baked"</td><td>Microscopic dark silicates; no index minerals</td><td>N/A (contact)</td><td>Any rock type adjacent to igneous intrusion</td><td><strong>Hornfels</strong></td></tr>
+  <tr><td>Non-foliated (or weakly foliated) — medium to coarse crystalline; dark</td><td>Hornblende (blade-like, 60°/120° cleavage), Plagioclase</td><td>N/A (non-foliated)</td><td>Basalt or gabbro (mafic igneous composition)</td><td><strong>Amphibolite</strong></td></tr>
+  <tr><td>Non-foliated — conglomeratic texture preserved; clasts fused/stretched</td><td>Quartz, feldspar, assorted clast minerals</td><td>Variable</td><td>Conglomerate (rounded clasts still visible; breaks across clasts)</td><td><strong>Metaconglomerate</strong></td></tr>
+</table>
+
+<div class="site-nav">
+  <span class="current-site">1 Lab Guide</span>
+  <a href="meta-rock-id.html">2 Rock ID Site →</a>
+  <a href="meta-lab-form.html">3 Lab Form →</a>
+</div>
+
+<script>
+function tog(el){
+  var a=el.nextElementSibling;
+  var arr=el.querySelector('.dt-arrow');
+  a.classList.toggle('open');
+  arr.classList.toggle('open');
+}
+</script>
+</body>
+</html>
