@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Metamorphic Rocks — Lab ID Form</title>
+<title>Metamorphic Rocks - Lab ID Form</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#222;background:#f5f5f3;max-width:960px;margin:0 auto;padding:0 1rem 4rem}
@@ -90,7 +90,7 @@ h1 em{font-style:italic;color:#555}
 </div>
 
 <div class="instructions">
-  <strong>Instructions:</strong> Five unknown metamorphic rock specimens are presented below. For each one, carefully observe the images and use your <a href="index.html">Lab Guide</a> and <a href="meta-rock-id.html">Rock ID site</a> as references. Work through the identification decision tree systematically and record your observations and reasoning in each field. <strong>Partial credit is awarded for well-reasoned answers</strong> — explain your thinking even if you are unsure of the final identification.
+  <strong>Instructions:</strong> Five unknown metamorphic rock specimens are presented below. For each one, carefully observe the images and use your <a href="index.html">Lab Guide</a> and <a href="meta-rock-id.html">Rock ID site</a> as references. Work through the identification decision tree systematically and record your observations and reasoning in each field. <strong>Partial credit is awarded for well-reasoned answers</strong>, explain your thinking even if you are unsure of the final identification.
 </div>
 
 <p class="section-head">Unknown Specimen Identification</p>
@@ -105,7 +105,7 @@ h1 em{font-style:italic;color:#555}
   <div id="copy-msg" style="display:none;font-size:13px;color:#155724;background:#d4edda;border:1px solid #c3e6cb;border-radius:5px;padding:0.4rem 0.8rem;">✓ Copied! Paste into the Canvas submission box.</div>
   <span class="progress-summary" id="prog-text">0 of 5 specimens completed</span>
 </div>
-<div class="done-badge" id="done-badge">✓ All 5 specimens completed — ready to submit.</div>
+<div class="done-badge" id="done-badge">✓ All 5 specimens completed - ready to submit.</div>
 
 <div class="site-nav">
   <a href="index.html">← Lab Guide</a>
@@ -117,7 +117,7 @@ h1 em{font-style:italic;color:#555}
 var unknowns = [
   {
     id:'A', img1:'garnetschist3.jpg', img2:'garnetschist4.jpg',
-    cap1:'Unknown A — Photo 1', cap2:'Unknown A — Photo 2',
+    cap1:'Unknown A - Photo 1', cap2:'Unknown A - Photo 2',
     hint_tex:'Is there a planar mineral alignment? Describe grain size, surface texture, and foliation style if present.',
     hint_min:'Describe crystal shapes, colors, and luster. Are there any large crystals (porphyroblasts) set within a finer matrix? If so, describe them.',
     hint_grd:'State Low / Intermediate / High and explain your reasoning based on texture and any minerals you observed.',
@@ -127,7 +127,7 @@ var unknowns = [
   },
   {
     id:'B', img1:'gneiss3.jpg', img2:'gneiss4.jpg',
-    cap1:'Unknown B — Photo 1', cap2:'Unknown B — Photo 2',
+    cap1:'Unknown B - Photo 1', cap2:'Unknown B - Photo 2',
     hint_tex:'Describe the banding or layering you observe. Is it foliation or could it be something else? What is the grain size?',
     hint_min:'Describe the light-colored and dark-colored bands separately. What minerals might each band represent?',
     hint_grd:'State the grade and explain. Consider grain size, the type of foliation, and what the mineral assemblage tells you about temperature and pressure.',
@@ -137,7 +137,7 @@ var unknowns = [
   },
   {
     id:'C', img1:'quartzite3.jpg', img2:'quartzite4.jpg',
-    cap1:'Unknown C — Photo 1', cap2:'Unknown C — Photo 2',
+    cap1:'Unknown C - Photo 1', cap2:'Unknown C - Photo 2',
     hint_tex:'Is there foliation? Describe the grain texture, does it appear granular, crystalline, or something else?',
     hint_min:'What appears to be the dominant mineral? Describe color, luster, and estimated hardness. Would this rock scratch glass?',
     hint_grd:'Can metamorphic grade be determined for this rock type? Explain why or why not.',
@@ -147,7 +147,7 @@ var unknowns = [
   },
   {
     id:'D', img1:'metaconglomerate3.jpg', img2:'metaconglomerate4.jpg',
-    cap1:'Unknown D — Photo 1', cap2:'Unknown D — Photo 2',
+    cap1:'Unknown D - Photo 1', cap2:'Unknown D - Photo 2',
     hint_tex:'Describe the overall texture. Are there recognizable clasts? What shape are they? Is there a matrix between them?',
     hint_min:'What can you determine about the mineral composition of the clasts and matrix? Describe their appearance.',
     hint_grd:'Can metamorphic grade be determined from this rock type? Explain your reasoning.',
@@ -157,7 +157,7 @@ var unknowns = [
   },
   {
     id:'E', img1:'marble3.jpg', img2:'marble4.jpg',
-    cap1:'Unknown E — Photo 1', cap2:'Unknown E — Photo 2',
+    cap1:'Unknown E - Photo 1', cap2:'Unknown E - Photo 2',
     hint_tex:'Describe the texture. Is there foliation? What does the crystal texture look like: coarse, fine, granular, sugary?',
     hint_min:'What mineral appears to dominate? Describe color, luster, and any visible crystal faces or cleavage.',
     hint_grd:'Can metamorphic grade be determined for this rock type? Explain.',
@@ -191,26 +191,26 @@ function buildForm() {
       '</div>' +
       '<div class="fields">' +
         '<div class="field-row">' +
-          '<div class="f"><label>1 — Texture</label>' +
+          '<div class="f"><label>1. Texture</label>' +
             '<textarea id="tex-'+uid+'" placeholder="'+u.hint_tex+'" oninput="upd(\''+uid+'\')"></textarea></div>' +
-          '<div class="f"><label>2 — Minerals / Index Minerals Present</label>' +
+          '<div class="f"><label>2. Minerals / Index Minerals Present</label>' +
             '<textarea id="min-'+uid+'" placeholder="'+u.hint_min+'" oninput="upd(\''+uid+'\')"></textarea></div>' +
         '</div>' +
         '<div class="field-row">' +
-          '<div class="f"><label>3 — Metamorphic Grade &amp; Reasoning</label>' +
+          '<div class="f"><label>3. Metamorphic Grade &amp; Reasoning</label>' +
             '<textarea id="grd-'+uid+'" placeholder="'+u.hint_grd+'" oninput="upd(\''+uid+'\')"></textarea></div>' +
-          '<div class="f"><label>4 — Protolith &amp; Evidence</label>' +
+          '<div class="f"><label>4. Protolith &amp; Evidence</label>' +
             '<textarea id="pro-'+uid+'" placeholder="'+u.hint_pro+'" oninput="upd(\''+uid+'\')"></textarea></div>' +
         '</div>' +
         '<div class="field-row">' +
-          '<div class="f"><label>5 — HCl Acid Test Prediction</label>' +
+          '<div class="f"><label>5. HCl Acid Test Prediction</label>' +
             '<textarea id="hcl-'+uid+'" placeholder="'+u.hint_hcl+'" oninput="upd(\''+uid+'\')"></textarea></div>' +
-          '<div class="f"><label>6 — Comparison to Reference Specimen</label>' +
+          '<div class="f"><label>6. Comparison to Reference Specimen</label>' +
             '<textarea id="cmp-'+uid+'" placeholder="'+u.hint_comp+'" oninput="upd(\''+uid+'\')"></textarea></div>' +
         '</div>' +
       '</div>' +
       '<div class="id-row">' +
-        '<div class="f"><label>Rock Name — Your Identification</label>' +
+        '<div class="f"><label>Rock Name - Your Identification</label>' +
           '<input type="text" id="nam-'+uid+'" placeholder="State the metamorphic rock name (be as specific as possible)" oninput="upd(\''+uid+'\')"></div>' +
         '<div class="f"><label>Confidence Level</label>' +
           '<input type="text" id="con-'+uid+'" placeholder="How confident are you? What would increase your confidence?" oninput="upd(\''+uid+'\')"></div>' +
@@ -269,7 +269,7 @@ function clearAll() {
 
 function copySubmission() {
   var lines = [];
-  lines.push('METAMORPHIC ROCKS LAB — EES 2001');
+  lines.push('METAMORPHIC ROCKS LAB - EES 2001');
   lines.push('Name: ' + (document.getElementById('sname').value || ''));
   lines.push('Section: ' + (document.getElementById('ssec').value || ''));
   lines.push('Date: ' + (document.getElementById('sdate').value || ''));
